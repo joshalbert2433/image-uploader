@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 
@@ -11,14 +12,18 @@ const ImageUploadRoutes = require("./routes/imageUpload.routes");
 app.use(cors());
 
 app.use(express.static(__dirname + "/static"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use("/api/upload", ImageUploadRoutes);
 
-app.get("/api/sample", (req, res) => {
-	res.sendFile(
-		__dirname +
-			"/images/1681746627541--a9c191f86af3c20c4177a2643b3150dc_tn.jpg"
-	);
+app.get("/api/getImage/:fileName", (req, res) => {
+	const fileName = req.params.fileName;
+	// res.sendFile(__dirname + `/images/resized/${fileName}`);
+	// res.set("Content-Type", "image/jpeg").sendFile(
+	// 	__dirname + `/static/images/resized/${fileName}`
+	// );
+	res.json(`localhost:8080/images/resized/${fileName}`);
 });
 
 app.listen(PORT, () => {

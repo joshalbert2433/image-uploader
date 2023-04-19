@@ -20,7 +20,7 @@ const upload = async (req, res) => {
 		// res.send("Single file uploaded successfully");
 
 		res.status(200).json({
-			filePath: fileData.path,
+			fileName: fileData.filename,
 			message: "Single file uploaded successfully",
 		});
 	} else {
