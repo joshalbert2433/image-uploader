@@ -30,7 +30,8 @@ const checkFileType = function (file, cb) {
 	if (mimeType && extName) {
 		return cb(null, true);
 	} else {
-		cb("Error: You can Only Upload Images!!");
+		// return cb(true);
+		cb("Invalid file format");
 	}
 };
 
