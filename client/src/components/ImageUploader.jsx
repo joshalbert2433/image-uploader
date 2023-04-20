@@ -10,7 +10,6 @@ function ImageUploader() {
 	const navigate = useNavigate();
 	const [isLoading, setIsLoading] = useState(false);
 	const [progress, setProgress] = useState(0);
-	const [imageData, setImageData] = useState("");
 
 	const onDrop = useCallback(async (acceptedFiles) => {
 		const imageFile = acceptedFiles[0];
@@ -39,7 +38,6 @@ function ImageUploader() {
 		const imageFile = e.target.files[0];
 		const formData = new FormData();
 		setIsLoading(true);
-		uploadImage();
 		formData.append("image", imageFile);
 
 		const result = await uploadImage(formData);

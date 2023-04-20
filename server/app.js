@@ -22,6 +22,10 @@ app.get("/api/getImage/:fileName", (req, res) => {
 	res.json(`localhost:8080/images/resized/${fileName}`);
 });
 
+app.get("/api", (req, res) => {
+	res.send("Image uploader API");
+});
+
 app.listen(PORT, () => {
 	console.log(`listening in port ${PORT}`);
 });
