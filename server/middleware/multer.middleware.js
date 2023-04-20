@@ -4,7 +4,6 @@ const path = require("path");
 const storageEngine = multer.diskStorage({
 	destination: "./static/images",
 	filename: (req, file, cb) => {
-		// cb(null, `${file.originalname}`);
 		cb(null, `${Date.now()}--${file.originalname}`);
 	},
 });
@@ -30,7 +29,6 @@ const checkFileType = function (file, cb) {
 	if (mimeType && extName) {
 		return cb(null, true);
 	} else {
-		// return cb(true);
 		cb("Invalid file format");
 	}
 };
