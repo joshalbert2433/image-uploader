@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const upload = async (req, res, next) => {
 	const fileData = req.file;
-
+	console.log(fileData);
 	if (fileData) {
 		const { filename: image } = fileData;
 

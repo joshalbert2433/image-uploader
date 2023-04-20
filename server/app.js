@@ -19,7 +19,7 @@ app.use("/api/upload", ImageUploadRoutes);
 
 app.get("/api/getImage/:fileName", (req, res) => {
 	const fileName = req.params.fileName;
-	res.json(`localhost:8080/images/resized/${fileName}`);
+	res.json(`${process.env.BACKEND_URL}/images/resized/${fileName}`);
 });
 
 app.get("/api", (req, res) => {
